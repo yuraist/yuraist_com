@@ -1,12 +1,16 @@
-from flask import Flask
-app = Flask(__name__)
+import os
 
+if os.path.exists('.env'):
+    print('Importing environment from .env ...')
+    for line in open('.env'):
+        var = line.strip().split('=')
+        if len(var) == 2:
+            os.environ[var[0]] = var[1]
 
-@app.route('/')
-def index():
-    return '<h1>Hello There</h1>'
+from app import create_app
+
+app = create_app(os.environ.get('FLASK_CONFIG') or 'default')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-
+    app.run()
