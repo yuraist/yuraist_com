@@ -4,6 +4,16 @@ from .telegram_bot import telegram_bot, WEBHOOK_URL_PATH, WEBHOOK_URL_BASE
 from flask import request, abort
 
 
+@bot.route('/setWebhook')
+def set_webhook():
+    try:
+        telegram_bot.remove_webhook()
+        telegram_bot.set_webhook(WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
+        return 'Webhook has been set up'
+    except:
+        return 'Webhook Error'
+
+
 @bot.route(WEBHOOK_URL_PATH, methods=['POST'])
 def webhook():
     if request.headers.get('content-type') == 'application/json':
