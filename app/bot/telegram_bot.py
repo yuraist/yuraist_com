@@ -6,7 +6,7 @@ import telebot
 API_TOKEN = os.environ.get('TOKEN')
 
 WEBHOOK_HOST = os.environ.get('WEBHOOK_HOST')
-WEBHOOK_PORT = 80
+WEBHOOK_PORT = 443
 WEBHOOK_LISTEN = '0.0.0.0'
 
 
