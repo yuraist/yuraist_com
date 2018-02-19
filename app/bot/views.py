@@ -1,10 +1,10 @@
 import telebot
 from . import bot
-from .telegram_bot import telegram_bot, WEBHOOK_URL_PATH, WEBHOOK_URL_BASE
+from .telegram_bot import telegram_bot, WEBHOOK_URL_PATH, WEBHOOK_URL_BASE, API_TOKEN
 from flask import request, abort
 
 
-@bot.route('/setWebhook')
+@bot.route('/setWebhook{}'.format(API_TOKEN))
 def set_webhook():
     try:
         telegram_bot.remove_webhook()
