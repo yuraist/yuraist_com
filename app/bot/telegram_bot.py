@@ -30,10 +30,3 @@ def send_welcome(message):
 @telegram_bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
     telegram_bot.reply_to(message, message.text)
-
-
-# Remove webhook, it fails sometimes the set if there is a previous webhook
-telegram_bot.remove_webhook()
-
-# Set webhook
-telegram_bot.set_webhook(WEBHOOK_URL_BASE+WEBHOOK_URL_PATH)
