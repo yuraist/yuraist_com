@@ -1,6 +1,7 @@
 import os
 import logging
 import telebot
+from time import sleep
 
 # Bot config
 API_TOKEN = os.environ.get('TOKEN')
@@ -30,3 +31,8 @@ def send_welcome(message):
 @telegram_bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
     telegram_bot.reply_to(message, message.text)
+
+
+telegram_bot.remove_webhook()
+sleep(0.5)
+telegram_bot.set_webhook(WEBHOOK_URL_BASE+WEBHOOK_URL_PATH)
