@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Yuraist.com</title>
-</head>
-<body>
-<h1 style="color:blue">Hello There!</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home | Yuraist.com{% endblock %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}

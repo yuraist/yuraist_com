@@ -9,6 +9,8 @@ class Config:
     # Database settings
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Commit database changes automatically
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
     @staticmethod
