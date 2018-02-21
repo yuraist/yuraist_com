@@ -44,4 +44,8 @@
       <a class="btn btn-danger" href="{{ url_for('main.edit_profile_admin', id=user.id) }}">Edit Profile [Admin]</a>
     {% endif %}
   </div>
+  <br>
+  <!-- User posts -->
+  <h3>Posts by {{ user.username }}</h3>
+  {% include '_posts.html' %}
 {% endblock %}
