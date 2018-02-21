@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+
+{% block page_content %}
+  <div class="page-header">
+    <h1>{{ user.username }}</h1>
+
+    <!-- User has location or name -->
+    {% if user.name or user.location %}
+      <p>
+        {% if user.name %}{{ user.name }}{% endif %}
+        {% if user.location %}
+          From <a href="https://maps.google.com/?q={{ user.location }}" target="_blank">
+          {{ user.location }}
+        </a>
+        {% endif %}
+      </p>
+    {% endif %}
+
+    <!-- User is admin -->
+    {% if current_user.is_administrator() %}
+      <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+    {% endif %}
+
+    <!-- User has about_me info -->
+    {% if user.about_me %}
+      <p>{{ user.about_me }}</p>
+    {% endif %}
+
+    <!-- Last seen and member since info -->
+    <p>
+      Member since: {{ moment(user.member_since).format('L') }}.
+      Last seen: {{ moment(user.last_seen).fromNow() }}.
+    </p>
+
+    <!-- Edit profile button -->
+    {% if user == current_user %}
+      <a class="btn btn-default" href="{{ url_for('main.edit_profile') }}">Edit Profile</a>
+    {% endif %}
+
+    <!-- Edit profile admin button -->
+    {% if current_user.is_administrator() %}
+      <a class="btn btn-danger" href="{{ url_for('main.edit_profile_admin', id=user.id) }}">Edit Profile [Admin]</a>
+    {% endif %}
+  </div>
+{% endblock %}
