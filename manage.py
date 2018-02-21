@@ -28,6 +28,17 @@ def make_shell_context():
 manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
+@manager.command
+def deploy():
+    from flask_migrate import upgrade
+    from app.models import Role, User
+
+    # Upgrade the database
+    upgrade()
+
+    # Create user roles
+    Role.insert_roles()
+
 
 if __name__ == '__main__':
     manager.run()

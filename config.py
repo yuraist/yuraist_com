@@ -13,6 +13,9 @@ class Config:
     # Commit database changes automatically
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
+    # Administrator email
+    YURAIST_ADMIN = os.environ.get('YURAIST_ADMIN')
+
     @staticmethod
     def init_app(app):
         pass
