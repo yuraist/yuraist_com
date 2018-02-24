@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ea0c1bd-f03f-426f-85c7-293aa77071ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/yuraist_com.iml" afterPath="$PROJECT_DIR$/.idea/yuraist_com.iml" />
-      <change beforePath="$PROJECT_DIR$/app/static/favicon.ico" afterPath="$PROJECT_DIR$/app/static/favicon.ico" />
-    </list>
+    <list default="true" id="0ea0c1bd-f03f-426f-85c7-293aa77071ec" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
